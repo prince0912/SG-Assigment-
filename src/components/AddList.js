@@ -5,9 +5,11 @@ const AddList = () => {
     const [title, setTitle] = useState("")
 
     const handleChangeTitle =(e)=>{
-        setTitle((e)=>(
-            title:e.target.value
-        ));
+        setTitle((e)=>{
+
+          title:e.target.value
+        }
+        );
     }
 
 

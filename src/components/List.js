@@ -1,17 +1,18 @@
-import React from 'react';
+import {useState} from 'react';
 import {Droppable, Draggable} from 'react-beautiful-dnd';
 import ListEditor from './ListEditor';
+import Card from "./Card";
+import CardEditor from "./CardEditor";
 
 
-const List = ({list, index}) => {
+
+const List = ({list, index, listId}) => {
     const [editingTitle, setEditingTitle] = useState(false);
     const [title, setTitle] = useState()
     const [addCard, setAddCard] = useState(false)
 
     const toggleAddCard = ()=>{
-        setTitle({
-            addCard: !addCard
-        })
+        setTitle(true)
     }
 
 //    const  addCard = async(cardText) =>{
@@ -20,14 +21,16 @@ const List = ({list, index}) => {
 
 
 const toggleEditTitle =()=>{
-    setEditingTitle({
-        editingTitle:!editingTitle
-    })
+    setEditingTitle(true)
 }
 
 const handleChangeTitle =(e)=>{
-    setTitle(
-        title:e.target.value)
+    setTitle({
+        title:e.target.value})
+}
+
+const deleteList = async()=>{
+
 }
 
 
@@ -48,7 +51,7 @@ const handleChangeTitle =(e)=>{
                     deleteList={deleteList}
                 />
             ):(
-                <div className='ListTitle' onClick={toggleEditingTitle}>
+                <div className='ListTitle' onClick={toggleEditTitle}>
                     {list.title}
                 </div>
             )}

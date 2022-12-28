@@ -1,11 +1,11 @@
-import React from 'react';
-import TextareaAutosize from 'recat-textarea-autosize';
+import {useRef} from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 
 
-const ListEditor = () => {
+const ListEditor = ({title, handleChangeTitle,deleteList}) => {
      const createRef = useRef()
 
-     onEnter = e=>{
+     const onEnter = e=>{
         if(e.keyCode === 13)
         {
             e.preventDefault();
@@ -13,17 +13,14 @@ const ListEditor = () => {
         }
      }
 
-     handleClick=e=>{
-        const node = ref.current;
+    const  handleClick =(e) =>{
+        const node = createRef.current;
         if(node.contains(e.target))
         {
             return
         }
-        onClickOutside();
+        // onClickOutside();
      }
-
-
-
 
   return (
     <div className='ListTitle' ref={createRef}>

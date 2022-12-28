@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditButton  = () => {
+const EditButton  = ({handleCancel, handleSave}) => {
   return (
     <div className='Edit-buttons'>
         <div onClick={handleSave}>
